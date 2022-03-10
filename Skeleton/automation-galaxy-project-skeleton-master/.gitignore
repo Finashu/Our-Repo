@@ -1,0 +1,8 @@
+# temp files
+*~
+.swp
+# other files
+*.log
+.retry
+.vault
+.idea

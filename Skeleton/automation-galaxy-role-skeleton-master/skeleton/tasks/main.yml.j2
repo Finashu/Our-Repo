@@ -1,0 +1,18 @@
+---
+# tasks file for {{ role_name }}
+
+## DEBUGGING
+
+- name: "DEBUG - value of ansible_distribution"
+  debug: var=ansible_distribution
+  when: {{ role_name }}_debug
+
+- name: "DEBUG - value of ansible_distribution_version"
+  debug: var=ansible_distribution_version
+  when: {{ role_name }}_debug
+
+- name: "DEBUG - value of ansible_distribution_major_version"
+  debug: var=ansible_distribution_major_version
+  when: {{ role_name }}_debug
+
+- import_tasks: preflight.yml

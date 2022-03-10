@@ -1,0 +1,25 @@
+---
+- name: A dummy playbook for {{ role_name }} project
+  hosts: localhost
+  gather_facts: yes
+  vars:
+    ansible_python_interpreter: {% raw %} "{{ ansible_playbook_python }}" {% endraw %}
+  tasks:
+
+  - include_role:
+      name: rolename
+    tags:
+      - tag_role
+
+  - name: Populate optional output and mandatory metadata variables for API endpoint
+    set_stats:
+      data:
+        foo: "value1"                     # <- Tower job results
+        bar: "value2"                     #
+        automated_service_metadata:       # <- automated service metadata
+          app_code: APP01                 # The Application code which provide this API endpoint
+          first_level_support_group: "ITSM_support_group_name" # Name of the 1st level support group that will be able to resolve incidents related to the API endpoint.
+          manual_effort_minutes: 60       # Avarage time taken for a human to deliver the requested operation
+      aggregate: yes                      # Always aggregate output variables with the automated_service_metadata. If not set to yes some mandatory metadata may be discarded on request completion. 
+    tags:
+      - always

@@ -1,0 +1,36 @@
+---
+# meta file for {{ role_name }}
+
+dependencies: []
+
+#  - name: role1
+#    src: https://bitbucket.itgit.oneadr.net/scm/ecoe/ansible-role-role1.git
+#    scm: git
+#    version: develop
+#    version: master
+
+#  - name: role2
+
+galaxy_info:
+  author: 'Nordea ID'
+  description: '{{ role_name }} is used to...'
+  company: 'Nordea'
+  license: GPLv3
+  
+  min_ansible_version: '2.3'
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - bionic
+        - precise
+        - trusty
+        - xenial
+
+  galaxy_tags:
+    - {{ role_name }}
+
+
